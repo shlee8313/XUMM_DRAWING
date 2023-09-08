@@ -111,8 +111,9 @@ io.on("connection", (socket) => {
   });
 socket.on("timeOut", ({ to }) => {
     const sendUserSocket = onlineUsers.get(to);
-     console.log("timeOut");
+     
     if (sendUserSocket) {
+      console.log("timeOut");
       // socket.to(sendUserSocket).emit("draw-line", { from: data.from, message: data.message });
       socket.to(sendUserSocket).emit("timeOut-receive");
     }
