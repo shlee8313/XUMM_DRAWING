@@ -109,13 +109,13 @@ io.on("connection", (socket) => {
       socket.to(sendUserSocket).emit("draw-line", { prevPoint, currentPoint, color });
     }
   });
-socket.on("timeOut", ({ to }) => {
+socket.on("ping", ({ to }) => {
     const sendUserSocket = onlineUsers.get(to);
-     
+
     if (sendUserSocket) {
-      console.log("timeOut");
+      console.log("ping");
       // socket.to(sendUserSocket).emit("draw-line", { from: data.from, message: data.message });
-      socket.to(sendUserSocket).emit("timeOut-receive");
+      socket.to(sendUserSocket).emit("ping");
     }
   });
   socket.on("clear", (data) => {
