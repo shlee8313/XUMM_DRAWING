@@ -109,8 +109,13 @@ io.on("connection", (socket) => {
       socket.to(sendUserSocket).emit("draw-line", { prevPoint, currentPoint, color });
     }
   });
-
-  socket.on("clear", () => io.emit("clear"));
+socket.on("clear", (data) => {
+    const sendUserSocket = onlineUsers.get(data.from);
+    if (sendUserSocket) {
+      socket.to(sendUserSocket).emit("clear");
+    }
+  });
+ // socket.on("clear", () => io.emit("clear"));
 });
 
 server.listen(3010, () => {
