@@ -109,7 +109,15 @@ io.on("connection", (socket) => {
       socket.to(sendUserSocket).emit("draw-line", { prevPoint, currentPoint, color });
     }
   });
-socket.on("clear", (data) => {
+socket.on("timeOut", ({ to }) => {
+    const sendUserSocket = onlineUsers.get(to);
+    // console.log("draw-line");
+    if (sendUserSocket) {
+      // socket.to(sendUserSocket).emit("draw-line", { from: data.from, message: data.message });
+      socket.to(sendUserSocket).emit("timeOut-receive");
+    }
+  });
+  socket.on("clear", (data) => {
     const sendUserSocket = onlineUsers.get(data.from);
     if (sendUserSocket) {
       socket.to(sendUserSocket).emit("clear");
