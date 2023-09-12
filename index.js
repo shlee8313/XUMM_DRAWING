@@ -132,6 +132,11 @@ socket.on("disconnect", () => {
     console.log("연결이 끊어졌습니다 Drawing server에서");
     // 연결이 끊어진 경우 추가 작업 수행
   });
+  /**
+   *
+   */
+});
+
 
 server.listen(3010, () => {
   console.log(`server started on port 3010`);
