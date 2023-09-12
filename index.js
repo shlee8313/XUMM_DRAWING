@@ -49,7 +49,7 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("online-users", {
       onlineUsers: Array.from(onlineUsers.keys()),
     });
-    // console.log("onlineUsers signout", onlineUsers);
+    console.log("onlineUsers signout", onlineUsers);
   });
 
   socket.on("outgoing-drawing-chat", (data) => {
