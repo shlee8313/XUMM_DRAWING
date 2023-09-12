@@ -125,10 +125,11 @@ socket.on("PING", ({ to }) => {
       socket.to(sendUserSocket).emit("clear");
     }
   });
- // socket.on("clear", () => io.emit("clear"));
-});
+  // socket.on("clear", () => {
+  //   io.emit("clear");
+  // });
 
-socket.on("disconnect", () => {
+  socket.on("disconnect", () => {
     console.log("연결이 끊어졌습니다 Drawing server에서");
     // 연결이 끊어진 경우 추가 작업 수행
   });
