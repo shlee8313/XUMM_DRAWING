@@ -22,6 +22,7 @@ const io = new Server(server, {
     origin: "*",
     credentials: true,
   },
+  pingTimeout: 1200000,
 });
 
 global.onlineUsers = new Map();
