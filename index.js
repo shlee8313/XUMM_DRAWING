@@ -113,7 +113,7 @@ socket.on("ping", ({ to }) => {
     const sendUserSocket = onlineUsers.get(to);
 
     if (sendUserSocket) {
-      console.log("PING");
+      //console.log("PING");
       // socket.to(sendUserSocket).emit("draw-line", { from: data.from, message: data.message });
       socket.to(sendUserSocket).emit("pong");
     }
