@@ -109,13 +109,13 @@ io.on("connection", (socket) => {
       socket.to(sendUserSocket).emit("draw-line", { prevPoint, currentPoint, color });
     }
   });
-socket.on("PING", ({ to }) => {
+socket.on("ping", ({ to }) => {
     const sendUserSocket = onlineUsers.get(to);
 
     if (sendUserSocket) {
       console.log("PING");
       // socket.to(sendUserSocket).emit("draw-line", { from: data.from, message: data.message });
-      socket.to(sendUserSocket).emit("PONG");
+      socket.to(sendUserSocket).emit("pong");
     }
   });
   
