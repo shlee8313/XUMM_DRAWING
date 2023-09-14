@@ -22,6 +22,7 @@ const io = new Server(server, {
     origin: "*",
     credentials: true,
   },
+  pingInterval: 20000,
   pingTimeout: 600000,
 });
 
